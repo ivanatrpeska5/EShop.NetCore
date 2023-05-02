@@ -1,0 +1,42 @@
+﻿@model EShopWeb.Models.DTO.ShoppingCartDto
+<div class="container">
+	div class="row m-4">
+	<a asp-controller="ShoppingCard" asp-action="Order" class="btn btn-info">Order Now</a>
+</div>
+	<div class="m-5">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Product Price</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Sum</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for(int i=0; i<Model.Products.Count; i++)
+				{
+					var item = Model.Products[i];
+					<tr>
+						<th scope="row">@(i+1)</th>
+						<th>@item.Product.ProductName</th>
+						<th>@item.Product.ProductPrice</th>
+						<th>@item.Quantity</th>
+						<th>@(item.Product.ProductPrice*item.Quantity)</th>
+						<td><a asp-controller="ShoppingCart" asp-action="DeleteFromShoppingCart" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a></td>
+					</tr>
+				}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th scope="col">Total Price:</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col">@Model.TotalPrice</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
