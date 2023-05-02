@@ -35,7 +35,7 @@ namespace EShopWeb.Controllers
                 .FirstOrDefaultAsync();
 
             var userShoppingCart = loggedInUser.UserCart;
-
+           
             var productPrice = userShoppingCart.ProductInShoppingCarts.Select(z => new
             {
                 ProductPrice = z.Product.ProductPrice,
