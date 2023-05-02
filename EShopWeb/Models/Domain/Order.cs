@@ -10,6 +10,6 @@ namespace EShopWeb.Models.Domain
 		public string UserId { get; set; }
 		public EShopApplicationUser User { get; set; }
 		public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
-
+		public string Test { get; set; }
 	}
 }
